@@ -59,5 +59,3 @@ spec:
                 name: my-config
             - secretRef:
                 name: my-secret
-      imagePullSecrets:
-        - name: acr-secret # ACR secret name, used only for private ACR images

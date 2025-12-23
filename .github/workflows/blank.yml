@@ -31,8 +31,15 @@ jobs:
          docker build -t ${{ secrets.ACR_NAME }}.azurecr.io/myapp:${{ github.sha }} .
          docker push ${{ secrets.ACR_NAME }}.azurecr.io/myapp:${{ github.sha }}
 
-      - name: Get AKS credentials
+      - name: Set AKS context
+        uses: azure/aks-set-context@v3
+        with:
+          resource-group: ${{ secrets.AKS_RESOURCE_GROUP }}
+          cluster-name: ${{ secrets.AKS_CLUSTER_NAME }}
+
+      - name: Deploy to AKS
         run: |
-         az aks get-credentials --resource-group ${{ secrets.AKS_RESOURCE_GROUP}} --name ${{ secrets.AKS_CLUSTER_NAME }}
+            kubectl apply -f deploy/k8s/app-deployment.yaml
+
          
         

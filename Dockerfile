@@ -1,5 +1,5 @@
 # Use the official Java 22 image
-FROM openjdk:25-jdk-slim
+FROM eclipse-temurin:25-jdk
 
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 

@@ -33,6 +33,6 @@ jobs:
 
       - name: Get AKS credentials
         run: |
-         az aks get-credentials --resource-group ${{ secrets.RESOURCE_GROUP }} --name ${{ secrets.AKS_CLUSTER_NAME }}
+         az aks get-credentials --resource-group ${{ secrets.AKS_RESOURCE_GROUP}} --name ${{ secrets.AKS_CLUSTER_NAME }}
          
         

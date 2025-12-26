@@ -52,8 +52,6 @@ jobs:
       - name: Deploy to AKS
         run: |
             kubectl apply -f deploy/k8s/app-deployment.yaml
-            kubectl apply -f deploy/k8s/kafka-deployment.yaml
-            kubectl apply -f deploy/k8s/mongodb-deployment.yaml
             
 
          
